@@ -6,44 +6,41 @@
 				<meta itemprop="name" content="{categories.name}">
 
 				<div class="category-icon">
+					<div id="category-{categories.cid}" class="category-header category-header-image-{categories.imageClass}" style="background: {categories.background}; color: {categories.color};">
+						<!-- IF !categories.link -->
+						<span class="badge {categories.badgeclass}">{categories.topic_count} {categories.name}</span>
+						<!-- ENDIF !categories.link -->
 
-					<!-- IF categories.link -->
-					<a style="color: {categories.color};" href="{categories.link}" itemprop="url" target="_blank">
-					<!-- ELSE -->
-					<a style="color: {categories.color};" href="{relative_path}/category/{categories.slug}" itemprop="url">
-					<!-- ENDIF categories.link -->
-						<div id="category-{categories.cid}" class="category-header category-header-image-{categories.imageClass}" style="background: {categories.background}; color: {categories.color};">
-							<!-- IF !categories.link -->
-							<span class="badge {categories.unread-class}">{categories.topic_count} </span>
-							<!-- ENDIF !categories.link -->
-
-							<div><i class="fa {categories.icon} fa-4x"></i></div>
-						</div>
-					</a>
-
+						<!-- IF categories.link -->
+						<a style="color: {categories.color};" href="{categories.link}" itemprop="url" target="_blank">
+						<!-- ELSE -->
+						<a style="color: {categories.color};" href="{relative_path}/category/{categories.slug}" itemprop="url">
+						<!-- ENDIF categories.link -->
+						<div><i class="fa {categories.icon} fa-4x"></i></div>
+					  </a>
+				  </div>
 					<div class="category-box">
 						<!-- IF categories.link -->
 						<a href="{categories.link}" itemprop="url" target="_blank">
 						<!-- ELSE -->
 						<a href="category/{categories.slug}" itemprop="url">
 						<!-- ENDIF categories.link-->
-							<h4><i class="fa {categories.icon} visible-xs-inline"></i> {categories.name}</h4>
+							
 						</a>
-						<div class="description" itemprop="description">{categories.description}</div>
 						<!-- IF !categories.link -->
-						<!-- BEGIN posts -->
+					  <!-- BEGIN posts -->
 						<div class="post-preview clearfix">
 							<a style="color: {categories.color};" href="./user/{categories.posts.userslug}">
-								<img src="{categories.posts.picture}" title="{categories.posts.username}" class="pull-left user-img" />
+								<div class="clear:both"><img src="{categories.posts.picture}" title="{categories.posts.username}" class="pull-right user-img" /><a href="topic/{categories.posts.topicSlug}#{categories.posts.pid}">[[category:posted]] </a><span class="timeago" title="{categories.posts.relativeTime}"></span></div><br/>
 							</a>
 
 							<p>
-								<strong>{categories.posts.username}</strong><br/>
-								{categories.posts.content}
+								
+								<a href="topic/{categories.posts.topicSlug}#{categories.posts.pid}">{categories.posts.content}</a>
 							</p>
 							<span class="pull-right">
-								<a href="topic/{categories.posts.topicSlug}#{categories.posts.pid}">[[category:posted]]</a>
-								<span class="timeago" title="{categories.posts.relativeTime}"></span>
+								
+								
 							</span>
 						</div>
 						<!-- END posts -->
