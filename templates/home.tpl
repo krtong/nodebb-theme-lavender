@@ -32,18 +32,18 @@
 						<div class="description" itemprop="description">{categories.description}</div>
 						<!-- IF !categories.link -->
 						<!-- BEGIN posts -->
-						<div class="post-preview clearfix">
+					<div class="post-preview clearfix">
 							<a style="color: {categories.color};" href="./user/{categories.posts.userslug}">
-								<img src="{categories.posts.picture}" title="{categories.posts.username}" class="pull-left user-img" />
+								<div class="clear:both"><img src="{categories.posts.picture}" title="{categories.posts.username}" class="pull-right user-img" /><a href="topic/{categories.posts.topicSlug}#{categories.posts.pid}">[[category:posted]] </a><span class="timeago" title="{categories.posts.relativeTime}"></span></div><br/>
 							</a>
 
 							<p>
-								<strong>{categories.posts.username}</strong><br/>
-								{categories.posts.content}
+								
+								<a href="topic/{categories.posts.topicSlug}#{categories.posts.pid}">{categories.posts.content}</a>
 							</p>
 							<span class="pull-right">
-								<a href="topic/{categories.posts.topicSlug}#{categories.posts.pid}">[[category:posted]]</a>
-								<span class="timeago" title="{categories.posts.relativeTime}"></span>
+								
+								
 							</span>
 						</div>
 						<!-- END posts -->
